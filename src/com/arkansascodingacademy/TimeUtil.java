@@ -1,5 +1,6 @@
 package com.arkansascodingacademy;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @SuppressWarnings("WeakerAccess")
@@ -10,6 +11,14 @@ public class TimeUtil
     {
         boolean afternoon = false;
 
+        LocalTime noon = LocalTime.NOON;
+        LocalTime four = LocalTime.of(16, 0);
+
+        if(time.isAfter(noon) && time.isBefore(four))
+        {
+            afternoon = true;
+        }
+
         return afternoon;
     }
 
@@ -17,6 +26,14 @@ public class TimeUtil
     public static boolean isAfterMidnight(LocalTime time)
     {
         boolean afterMidnight = false;
+
+        LocalTime midnight = LocalTime.MIDNIGHT;
+        LocalTime fourAM = LocalTime.of(4, 0);
+
+        if(time.isBefore(fourAM) && time.isAfter(midnight))
+        {
+            afterMidnight = true;
+        }
 
         return afterMidnight;
     }
